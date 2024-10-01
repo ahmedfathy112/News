@@ -1,7 +1,8 @@
 "use client";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import { DOMAIN } from "../../utils/constants";
+import { DOMAIN } from "../utils/constants";
+
 
 
 // Import Swiper styles
