@@ -3,11 +3,13 @@ import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { FaSignOutAlt } from "react-icons/fa";
+import { DOMAIN } from "../utils/constants";
+
 export default function LogOut() {
   const router = useRouter();
   const logoutHandler = async () => {
     try {
-      await axios.get("http://localhost:3000/api/users/logout");
+      await axios.get(`${DOMAIN}/api/users/logout`);
       router.push("/login");
       router.refresh();
     } catch (error) {
