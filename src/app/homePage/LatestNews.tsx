@@ -1,6 +1,8 @@
 "use client";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { DOMAIN } from "../../utils/constants";
+
 
 // Import Swiper styles
 import "swiper/css";
@@ -21,7 +23,7 @@ export default function SwiperNews() {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/articles`);
+        const response = await fetch(`${DOMAIN}/api/articles`);
         const data = await response.json();
         setArticle(data);
       } catch (error) {
