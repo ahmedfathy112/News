@@ -6,6 +6,7 @@ import { verifyTokenForPages } from "../../utils/verifyToken";
 import DeleteComment from "./DeleteComment";
 import { comment } from "@prisma/client";
 import { error } from "console";
+import { DOMAIN } from "../../utils/constants";
 
 const CommentTable = async () => {
   const token = cookies().get("JwtToken")?.value;
@@ -17,7 +18,7 @@ const CommentTable = async () => {
     redirect("/");
   }
 
-  const response = await fetch("http://localhost:3000/api/comments", {
+  const response = await fetch(`${DOMAIN}/api/comments`, {
     headers: { Cookie: `JwtToken=${token}` },
   });
   if (!response.ok) {

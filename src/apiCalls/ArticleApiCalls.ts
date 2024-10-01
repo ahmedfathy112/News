@@ -2,14 +2,14 @@ import { Article } from "@prisma/client";
 import { SingleArticle } from "../app/utils/types";
 import axios from "axios";
 import { date } from "zod";
+import { DOMAIN } from "../app/utils/constants";
 
 export async function getArticles(
   pageNumber: string | null
 ): Promise<Article[]> {
-  const data = await fetch(
-    `http://localhost:3000/api/articles?pageNumber=${pageNumber}`,
-    { cache: "no-store" }
-  );
+  const data = await fetch(`${DOMAIN}/api/articles?pageNumber=${pageNumber}`, {
+    cache: "no-store",
+  });
   // if (!data.ok) {
   //   throw new Error("there is error in fetch data");
   // }
@@ -17,7 +17,7 @@ export async function getArticles(
 }
 // get articles count
 export async function getArticlesCount(): Promise<number> {
-  const response = await fetch(`http://localhost:3000/api/articles/count`);
+  const response = await fetch(`${DOMAIN}/api/articles/count`);
   if (!response.ok) {
     throw new Error("there is error in fetch article count");
   }
@@ -30,7 +30,7 @@ export async function getArticlesBySearch(
 ): Promise<Article[]> {
   try {
     const response = await fetch(
-      `http://localhost:3000/api/articles/search?searchText=${searchText}`
+      `${DOMAIN}/api/articles/search?searchText=${searchText}`
     );
 
     if (!response.ok) {
@@ -51,10 +51,9 @@ export async function getArticlesBySearch(
 export async function getSingleArticle(
   articleId: string
 ): Promise<SingleArticle> {
-  const response = await fetch(
-    `http://localhost:3000/api/articles/${articleId}`,
-    { cache: "no-store" }
-  );
+  const response = await fetch(`${DOMAIN}/api/articles/${articleId}`, {
+    cache: "no-store",
+  });
   if (!response.ok) {
     throw new Error("there is error in fetch data");
   }

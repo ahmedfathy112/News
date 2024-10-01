@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { DOMAIN } from "../../utils/constants";
 
 const RegisterForm = () => {
   const [email, setEmail] = useState();
@@ -22,7 +23,7 @@ const RegisterForm = () => {
       toast.error("Error in password");
     }
     try {
-      await axios.post("http://localhost:3000/api/users/register", {
+      await axios.post(`${DOMAIN}/api/users/register`, {
         email,
         password,
         userName,

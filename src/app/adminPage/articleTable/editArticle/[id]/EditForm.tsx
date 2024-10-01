@@ -4,6 +4,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import React, { FormEvent, useState } from "react";
 import { toast } from "react-toastify";
+import { DOMAIN } from "../../../../utils/constants";
 
 interface EditFormProps {
   article: Article;
@@ -21,7 +22,7 @@ const EditForm = ({ article }: EditFormProps) => {
       toast.error("Error in description");
     }
     try {
-      await axios.put(`http://localhost:3000/api/articles/${article.id}`, {
+      await axios.put(`${DOMAIN}/api/articles/${article.id}`, {
         title: updatedTitle,
         body: UpdatedBody,
       });

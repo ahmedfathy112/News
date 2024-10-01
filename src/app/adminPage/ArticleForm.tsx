@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
+import { DOMAIN } from "../utils/constants";
 
 const ArticleForm = () => {
   const [title, setTitle] = useState("");
@@ -18,7 +19,7 @@ const ArticleForm = () => {
       toast.error("Error in description");
     }
     try {
-      await axios.post(`http://localhost:3000/api/articles`, {
+      await axios.post(`${DOMAIN}/api/articles`, {
         title,
         body,
       });

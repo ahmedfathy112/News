@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { DOMAIN } from "../../utils/constants";
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +20,7 @@ const LoginPage = () => {
       toast.error("Error in password");
     }
     try {
-      await axios.post("http://localhost:3000/api/users/login", {
+      await axios.post(`${DOMAIN}/api/users/login`, {
         email,
         password,
       });

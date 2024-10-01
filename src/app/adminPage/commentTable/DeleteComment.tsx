@@ -3,6 +3,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { toast } from "react-toastify";
+import { DOMAIN } from "../../utils/constants";
 
 interface DeleteArticleprops {
   commentId: number;
@@ -11,7 +12,7 @@ const DeleteComment = ({ commentId }: DeleteArticleprops) => {
   const router = useRouter();
   const deleteHandlar = async () => {
     try {
-      await axios.delete(`http://localhost:3000/api/comments/${commentId}`);
+      await axios.delete(`${DOMAIN}/api/comments/${commentId}`);
       toast.success("Comment deleted successfully!");
       router.refresh();
     } catch (error) {

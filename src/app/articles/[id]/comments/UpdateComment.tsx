@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { MdCancel } from "react-icons/md";
+import { DOMAIN } from "../../../utils/constants";
 
 interface UpdateCommentProps {
   setOpen: Dispatch<SetStateAction<boolean>>;
@@ -21,7 +22,7 @@ const UpdateComment = ({
     e.preventDefault();
     if (updatedText === "") return toast.error("please write any thing!");
     try {
-      await axios.put(`http://localhost:3000/api/comments/${commentId}`, {
+      await axios.put(`${DOMAIN}/api/comments/${commentId}`, {
         CommentText: updatedText,
       });
       setUpdatedText("");

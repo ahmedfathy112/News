@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { DOMAIN } from "../../../utils/constants";
 interface commentProps {
   comment: CommentWithUser;
   userId: number | null;
@@ -15,7 +16,7 @@ const AddComment = ({ comment, userId }: commentProps) => {
   const router = useRouter();
   const deleteComment = async () => {
     try {
-      await axios.delete(`http://localhost:3000/api/comments/${comment.id}`);
+      await axios.delete(`${DOMAIN}/api/comments/${comment.id}`);
       router.refresh();
       toast.success("Deleted Successfully");
     } catch (error) {

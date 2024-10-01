@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { DOMAIN } from "../../../utils/constants";
 
 interface AddCommentForm {
   articleId: number;
@@ -14,7 +15,7 @@ const CommentForm = ({ articleId }: AddCommentForm) => {
     e.preventDefault();
     if (commentText === "") return toast.error("Please Write Something!");
     try {
-      await axios.post(`http://localhost:3000/api/comments`, {
+      await axios.post(`${DOMAIN}/api/comments`, {
         commentText,
         articleId,
       });
