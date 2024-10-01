@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  userName  String   @db.VarChar(100) //max lingth 100
+  Password  String
+  isAdmin   Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  comments  comment[]
+}
+
+model Article {
+  id        Int       @id @default(autoincrement())
+  title     String    @db.VarChar(120)
+  body      String    @db.VarChar(60000)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  comments  comment[]
+}
+
+model comment {
+  id          Int      @id @default(autoincrement())
+  CommentText String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  articleId   Int
+  userId      Int
+  // one-to-many relation between user and comments
+  user        User     @relation(fields: [userId],references: [id],onDelete: Cascade)
+  // one-to-many relation between article and comments
+  article     Article  @relation(fields: [articleId], references: [id],onDelete: Cascade)
+}

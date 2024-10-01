@@ -1,0 +1,13 @@
+.menuHeader {
+  display: none;
+}
+.menuBox {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transition: 0.8s ease-in-out;
+}
+
+@media screen and (max-width: 767px) {
+  .menuHeader {
+    display: block;
+  }
+}
