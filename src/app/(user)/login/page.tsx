@@ -14,10 +14,10 @@ const LoginPage = () => {
   const formHandelr = async (e) => {
     e.preventDefault();
     if (email === "") {
-      toast.error("Error in email");
+      toast.error("خطأ في البريد الالكتروني");
     }
     if (password === "") {
-      toast.error("Error in password");
+      toast.error("خطأ في كلمه السر");
     }
     try {
       await axios.post(`${DOMAIN}/api/users/login`, {
@@ -41,11 +41,13 @@ const LoginPage = () => {
       </div>
       <div className="py-5 px-7 bg-white rounded-lg">
         <h2 className="my-3 font-semibold text-2xl text-center">
-          Login to your account
+          تسجيل دخول لحسابك
         </h2>
         <form onSubmit={formHandelr}>
           <div className="flex flex-col text-left my-3">
-            <label className="my-1 font-semibold text-[17px]">Email</label>
+            <label className="my-1 font-semibold text-[17px] text-right">
+              البريد الالكتروني
+            </label>
             <input
               title="setEmail"
               type="email"
@@ -55,7 +57,9 @@ const LoginPage = () => {
             ></input>
           </div>
           <div className="flex flex-col text-left my-3">
-            <label className="my-1 font-semibold text-[17px]">Password</label>
+            <label className="my-1 font-semibold text-[17px] text-right">
+              كلمة السر
+            </label>
             <input
               title="setPassword"
               type="password"
@@ -65,15 +69,15 @@ const LoginPage = () => {
             ></input>
           </div>
           <button className="py-2 px-4 bg-blue-500 text-white text-[18px] font-semibold w-full rounded-lg border-2">
-            Login Now
+            تسجيل الدخول
           </button>
           <p className="my-4 text-gray-400 font-medium text-[17px] text-center">
-            Don`t have an account?
+            ليس لديك حساب؟
             <Link
               href="/register"
               className="text-blue-500 font-semibold cursor-pointer"
             >
-              Register
+              إنشاء حساب
             </Link>
           </p>
         </form>
