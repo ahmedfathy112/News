@@ -33,7 +33,7 @@ const UpdateComment = ({
     }
   };
   return (
-    <div className="fixed top-0 left-0 right-0 bottom-0 bg-[#000000db] w-full h-full flex justify-center items-center">
+    <div className="fixed top-0 left-0 right-0 bottom-0 bg-[#000000db] w-full h-full flex justify-center items-center z-20">
       <div className="flex flex-col w-[50%] rounded-lg bg-white py-4 px-6 h-[250px] justify-between max-md:w-[80%]">
         <div className="w-full text-right">
           <MdCancel
