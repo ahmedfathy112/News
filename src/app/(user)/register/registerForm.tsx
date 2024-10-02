@@ -38,7 +38,9 @@ const RegisterForm = () => {
   return (
     <form onSubmit={formHandelr}>
       <div className="flex flex-col text-left my-3">
-        <label className="my-1 font-semibold text-[17px]">UserName</label>
+        <label className="my-1 font-semibold text-[17px] text-right">
+          أسم المستخدم
+        </label>
         <input
           title="userName"
           onChange={(e: any) => setUser(e.target.value)}
@@ -47,7 +49,9 @@ const RegisterForm = () => {
         ></input>
       </div>
       <div className="flex flex-col text-left my-3">
-        <label className="my-1 font-semibold text-[17px]">Email</label>
+        <label className="my-1 font-semibold text-[17px] text-right">
+          البريد الالكتروني
+        </label>
         <input
           title="email"
           onChange={(e: any) => setEmail(e.target.value)}
@@ -56,7 +60,9 @@ const RegisterForm = () => {
         ></input>
       </div>
       <div className="flex flex-col text-left my-3">
-        <label className="my-1 font-semibold text-[17px]">Password</label>
+        <label className="my-1 font-semibold text-[17px] text-right">
+          كلمة السر
+        </label>
         <input
           title="password"
           onChange={(e: any) => setPassword(e.target.value)}
@@ -65,15 +71,15 @@ const RegisterForm = () => {
         ></input>
       </div>
       <button className="py-2 px-4 bg-blue-500 text-white text-[18px] font-semibold w-full rounded-lg border-2">
-        create account
+        أنشئ حساب
       </button>
       <p className="my-4 text-gray-400 font-medium text-[17px] text-center">
-        Already have an account?
+        لديك حساب بالفعل؟
         <Link
           href="/login"
           className="text-blue-500 font-semibold cursor-pointer"
         >
-          signin
+          تسجيل دخول
         </Link>
       </p>
     </form>
