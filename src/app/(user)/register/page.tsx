@@ -22,8 +22,8 @@ const RegisterPage = () => {
         </p>
       </div>
       <div className="w-1/2 flex justify-center items-center max-md:w-full">
-        <div className="w-[500px] max-md:w-[400px]">
-          <h2 className="text-3xl font-bold my-4">Create an acoount</h2>
+        <div className="w-[500px] max-md:w-auto">
+          <h2 className="text-3xl font-bold my-4 text-center">إنشاء حساب</h2>
           <RegisterForm />
         </div>
       </div>
