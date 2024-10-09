@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
     const response = NextResponse.json({}); // إنشاء استجابة فارغة
     response.headers.set(
       "Access-Control-Allow-Origin",
-      "http://localhost:3000"
+      "https://vercel.live/link/news-two-rouge.vercel.app?via=project-dashboard-alias-list&p=1"
     ); // تغيير هذا إذا كنت تريد السماح بنطاقات أخرى
     response.headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
     response.headers.set("Access-Control-Allow-Headers", "Content-Type");
@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
     const response = NextResponse.json(newArticle, { status: 201 });
     response.headers.set(
       "Access-Control-Allow-Origin",
-      "http://localhost:3000"
+      "https://vercel.live/link/news-two-rouge.vercel.app?via=project-dashboard-alias-list&p=1"
     );
     response.headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
     response.headers.set("Access-Control-Allow-Headers", "Content-Type");
