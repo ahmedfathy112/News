@@ -7,7 +7,7 @@ import { DOMAIN } from "../app/utils/constants";
 export async function getArticles(
   pageNumber: string | null
 ): Promise<Article[]> {
-  const data = await fetch(`${DOMAIN}/api/articles?pageNumber=`${pageNumber}`, {
+  const data = await fetch(`${DOMAIN}/api/articles?pageNumber=${pageNumber}`, {
     cache: "no-store",
   });
   if (!data.ok) {
