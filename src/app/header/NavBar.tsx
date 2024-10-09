@@ -44,7 +44,7 @@ const LoginBtns = ({ isAdmin }: NavBarProps) => {
               الرئيسية
             </Link>
             <Link
-              href="/articles"
+              href="/articles?pageNumber=1"
               className="text-[18px] text-white font-medium mr-2 mb-3 hover:bg-orange-400"
             >
               الأخبار
