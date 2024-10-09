@@ -38,7 +38,7 @@ export async function getArticlesBySearch(
     }
 
     const data = await response.json();
-    const articlesSearch = data.articles;
+    const articlesSearch = data;
 
     return articlesSearch; // إرجاع البيانات بعد جلبها بنجاح
   } catch (error) {
