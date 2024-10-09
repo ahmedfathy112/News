@@ -10,9 +10,9 @@ export async function getArticles(
   const data = await fetch(`${DOMAIN}/api/articles?pageNumber=${pageNumber}`, {
     cache: "no-store",
   });
-  // if (!data.ok) {
-  //   throw new Error("there is error in fetch data");
-  // }
+  if (!data.ok) {
+     throw new Error("there is error in fetch data");
+   }
   return data.json();
 }
 // get articles count
