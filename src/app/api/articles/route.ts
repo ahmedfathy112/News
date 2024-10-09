@@ -15,13 +15,23 @@ import { verifyToken } from "../../utils/verifyToken";
 
 export async function GET(request: NextRequest) {
   try {
+    // إعداد رؤوس CORS
+    const response = NextResponse.json({}); // إنشاء استجابة فارغة
+    response.headers.set(
+      "Access-Control-Allow-Origin",
+      "http://localhost:3000"
+    ); // تغيير هذا إذا كنت تريد السماح بنطاقات أخرى
+    response.headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    response.headers.set("Access-Control-Allow-Headers", "Content-Type");
+
     const pageNumber = request.nextUrl.searchParams.get("pageNumber") || "1";
     const articles = await prisma.article.findMany({
       skip: ARTICLE_PER_PAGE * (parseInt(pageNumber) - 1),
       take: ARTICLE_PER_PAGE,
       orderBy: { createdAt: "desc" },
     });
-    return NextResponse.json(articles, { status: 200 });
+    response.body = articles; // إضافة المقالات إلى الاستجابة
+    return response; // إرجاع الاستجابة
   } catch (error) {
     return NextResponse.json(
       { message: "internal server error!" },
@@ -64,7 +74,16 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    return NextResponse.json(newArticle, { status: 201 });
+    // إعداد رؤوس CORS هنا أيضًا
+    const response = NextResponse.json(newArticle, { status: 201 });
+    response.headers.set(
+      "Access-Control-Allow-Origin",
+      "http://localhost:3000"
+    );
+    response.headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    response.headers.set("Access-Control-Allow-Headers", "Content-Type");
+
+    return response;
   } catch (error) {
     return NextResponse.json(
       { message: "internal server error!" },
